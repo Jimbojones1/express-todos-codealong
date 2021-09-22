@@ -10,6 +10,7 @@ router.get('/new', todoController.new); // <--- define /new before the /:id so t
 // get captured by the params
 router.get('/:id', todoController.show);
 router.post('/', todoController.create);
+router.delete('/:id', todoController.delete);
 // :id <- param, we can access that variable in the controller by using the req object
 
 

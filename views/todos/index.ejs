@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Express To-do</title>
+	<link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
 	<h1>Todos</h1>
@@ -13,6 +14,11 @@
     <ul>
       <% todos.forEach(function(t) { %>
         <li>
+		
+		  <form class="delete-form" method="POST" action="/todos/<%= t.id %>?_method=DELETE">
+			  <button type='submit'>X</button>
+		  </form>
+
           <a href="/todos/<%= t.id %> "><%= t.todo %></a>
             - 
           <%= t.done ? 'done' : 'not done' %>

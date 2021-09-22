@@ -8,8 +8,19 @@ module.exports = {
 	index: index,
 	show: show,
 	new: newTodo,
-	create: create
+	create: create,
+	delete: deleteTodo
   };
+
+function deleteTodo(req, res){
+
+	// How can we access the id of the todo we want to delete here?
+	// req.params.id
+	Todo.deleteOne(req.params.id);
+
+	res.redirect('/todos');
+
+}
 
 function create(req, res){
 	console.log(req.body, " <--- will be the contents of the form");
